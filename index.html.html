@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Stryper Solution Pvt Ltd</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+    color:#222;
+}
+
+header{
+    background:#0a2540;
+    color:white;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    color:#00bfff;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:25px;
+    font-weight:500;
+}
+
+.hero{
+    height:90vh;
+    background:
+    linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+    url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    color:white;
+    padding:0 8%;
+}
+
+.hero-content{
+    max-width:700px;
+}
+
+.hero h1{
+    font-size:58px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:18px;
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 30px;
+    background:#00bfff;
+    color:white;
+    text-decoration:none;
+    border-radius:5px;
+    font-weight:600;
+    transition:0.3s;
+    border:none;
+    cursor:pointer;
+}
+
+.btn:hover{
+    opacity:0.9;
+}
+
+.whatsapp-btn{
+    background:#25D366;
+    margin-left:15px;
+}
+
+.whatsapp-btn:hover{
+    background:#1ebe5d;
+}
+
+.section{
+    padding:80px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title h2{
+    font-size:42px;
+    color:#0a2540;
+}
+
+.services{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card h3{
+    margin-bottom:15px;
+    color:#0a2540;
+}
+
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    align-items:center;
+}
+
+.about img{
+    width:100%;
+    border-radius:12px;
+}
+
+/* ADMIN PANEL */
+
+.admin-panel{
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    margin-bottom:50px;
+}
+
+.admin-panel h3{
+    margin-bottom:25px;
+    color:#0a2540;
+}
+
+.admin-panel input,
+.admin-panel select,
+.admin-panel textarea{
+    width:100%;
+    padding:15px;
+    margin-bottom:15px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    font-size:15px;
+}
+
+.admin-panel button{
+    background:#00bfff;
+    color:white;
+    border:none;
+    padding:14px 30px;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:600;
+}
+
+.admin-panel button:hover{
+    opacity:0.9;
+}
+
+/* JOB SECTION */
+
+.jobs-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.job-card{
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.job-card:hover{
+    transform:translateY(-8px);
+}
+
+.job-card h3{
+    color:#0a2540;
+    margin-bottom:15px;
+}
+
+.job-card p{
+    margin-bottom:12px;
+    line-height:1.7;
+}
+
+.delete-btn{
+    background:#ff4d4d;
+    margin-top:15px;
+}
+
+.delete-btn:hover{
+    background:#e60000;
+}
+
+.contact{
+    background:#0a2540;
+    color:white;
+}
+
+.contact-box{
+    max-width:700px;
+    margin:auto;
+    text-align:center;
+}
+
+.contact-box p{
+    margin:15px 0;
+    font-size:18px;
+}
+
+.contact form{
+    margin-top:30px;
+}
+
+.contact input,
+.contact textarea{
+    width:100%;
+    padding:15px;
+    margin:10px 0;
+    border:none;
+    border-radius:6px;
+}
+
+.contact button{
+    background:#00bfff;
+    color:white;
+    border:none;
+    padding:15px 30px;
+    font-size:16px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+footer{
+    background:#061523;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+.floating-whatsapp{
+    position:fixed;
+    width:60px;
+    height:60px;
+    bottom:25px;
+    right:25px;
+    background:#25D366;
+    color:white;
+    border-radius:50%;
+    text-align:center;
+    font-size:30px;
+    line-height:60px;
+    text-decoration:none;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+    z-index:1000;
+}
+
+.floating-whatsapp:hover{
+    background:#1ebe5d;
+}
+
+@media(max-width:768px){
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    .about{
+        grid-template-columns:1fr;
+    }
+
+    nav{
+        display:none;
+    }
+
+    .whatsapp-btn{
+        margin-left:0;
+        margin-top:15px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">STRYPER SOLUTION PVT LTD</div>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#jobs">Jobs</a>
+        <a href="#">Services</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+
+</header>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>Professional HR Consulting Services</h1>
+
+        <p>
+            Stryper Solution Pvt Ltd provides reliable HR consulting,
+            recruitment, payroll, staffing, and compliance solutions
+            for modern businesses and growing organizations.
+        </p>
+
+        <a href="#" class="btn">Get Started</a>
+
+        <a href="https://wa.me/918448590303?text=Hello%20Stryper%20Solution%20Pvt%20Ltd,%20I%20am%20interested%20in%20your%20services."
+           class="btn whatsapp-btn"
+           target="_blank">
+           WhatsApp Us
+        </a>
+
+    </div>
+
+</section>
+
+<!-- JOB SECTION START -->
+
+<section class="section" id="jobs">
+
+    <div class="section-title">
+        <h2>Latest Job Openings</h2>
+    </div>
+
+    <!-- ADMIN PANEL -->
+
+    <div class="admin-panel">
+
+        <h3>Admin Panel - Add New Job</h3>
+
+        <input type="text" id="jobTitle" placeholder="Job Title">
+
+        <input type="text" id="jobLocation" placeholder="Location">
+
+        <select id="jobType">
+            <option value="">Select Contract Type</option>
+            <option>Permanent</option>
+            <option>Temporary</option>
+            <option>Remote</option>
+        </select>
+
+        <textarea id="jobDescription" rows="5" placeholder="Job Description"></textarea>
+
+        <button onclick="addJob()">Post Job</button>
+
+    </div>
+
+    <!-- JOB LIST -->
+
+    <div class="jobs-container" id="jobsContainer">
+
+    </div>
+
+</section>
+
+<!-- JOB SECTION END -->
+
+<section class="section">
+
+    <div class="section-title">
+        <h2>Our HR Consulting Services</h2>
+    </div>
+
+    <div class="services">
+
+        <div class="card">
+            <h3>Recruitment & Staffing</h3>
+            <p>
+                Complete hiring solutions including talent acquisition,
+                executive search, and workforce staffing.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Payroll Management</h3>
+            <p>
+                Secure payroll processing, salary management,
+                attendance tracking, and compliance support.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>HR Policy Development</h3>
+            <p>
+                Customized HR policies, employee handbooks,
+                and workplace compliance frameworks.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Employee Training</h3>
+            <p>
+                Leadership development, onboarding programs,
+                and employee skill enhancement workshops.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Performance Management</h3>
+            <p>
+                KPI tracking, employee evaluations,
+                and productivity improvement systems.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Compliance & Legal Support</h3>
+            <p>
+                Labor law compliance, statutory filings,
+                and HR legal advisory services.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="section">
+
+    <div class="about">
+
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978" alt="About Image">
+
+        <div>
+
+            <h2>About Stryper Solution Pvt Ltd</h2>
+
+            <p style="margin-top:20px; line-height:1.9;">
+                Stryper Solution Pvt Ltd is a trusted HR consulting company
+                helping businesses streamline recruitment, payroll,
+                employee management, and HR operations with efficient
+                and professional solutions.
+            </p>
+
+            <a href="#" class="btn" style="margin-top:25px;">Learn More</a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="section contact">
+
+    <div class="section-title">
+        <h2 style="color:white;">Contact Us</h2>
+    </div>
+
+    <div class="contact-box">
+
+        <p><strong>Company:</strong> Stryper Solution Pvt Ltd</p>
+
+        <p><strong>Email:</strong> Strypersolutionpvtltd@gmail.com</p>
+
+        <p><strong>Phone:</strong> +91 8448590303</p>
+
+        <div style="margin-top:25px; border-radius:12px; overflow:hidden; box-shadow:0 5px 20px rgba(0,0,0,0.15);">
+
+            <iframe
+                src="https://www.google.com/maps?q=310%20Tower%20B%20Pioneer%20Park%20Sector%2062%20Badshahpur%20Gurgaon&output=embed"
+                width="100%"
+                height="380"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+
+        </div>
+
+        <p>
+            <strong>Office Address:</strong><br>
+            310 Tower B, Pioneer Park,<br>
+            Sector 62, Badshahpur,<br>
+            Gurgaon, Haryana, India
+        </p>
+
+        <form>
+
+            <input type="text" placeholder="Your Name">
+
+            <input type="email" placeholder="Your Email">
+
+            <textarea rows="5" placeholder="Your Message"></textarea>
+
+            <button type="submit">Send Message</button>
+
+        </form>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 Stryper Solution Pvt Ltd. All Rights Reserved.
+</footer>
+
+<a href="https://wa.me/918448590303?text=Hello%20Stryper%20Solution%20Pvt%20Ltd"
+   class="floating-whatsapp"
+   target="_blank">
+   💬
+</a>
+
+<script>
+
+let jobs = JSON.parse(localStorage.getItem("jobs")) || [
+
+    {
+        title:"HR Recruiter",
+        location:"Gurgaon",
+        type:"Permanent",
+        description:"Looking for experienced HR recruiters with strong communication and hiring skills."
+    },
+
+    {
+        title:"Payroll Executive",
+        location:"Remote",
+        type:"Temporary",
+        description:"Manage payroll processing, attendance, salary slips, and employee records."
+    }
+
+];
+
+function displayJobs(){
+
+    const jobsContainer = document.getElementById("jobsContainer");
+
+    jobsContainer.innerHTML = "";
+
+    jobs.forEach((job,index)=>{
+
+        jobsContainer.innerHTML += `
+
+            <div class="job-card">
+
+                <h3>${job.title}</h3>
+
+                <p><strong>Location:</strong> ${job.location}</p>
+
+                <p><strong>Type:</strong> ${job.type}</p>
+
+                <p>${job.description}</p>
+
+                <a href="#" class="btn">Apply Now</a>
+
+                <br>
+
+                <button class="btn delete-btn" onclick="deleteJob(${index})">
+                    Delete Job
+                </button>
+
+            </div>
+
+        `;
+    });
+
+    localStorage.setItem("jobs", JSON.stringify(jobs));
+}
+
+function addJob(){
+
+    const title = document.getElementById("jobTitle").value;
+
+    const location = document.getElementById("jobLocation").value;
+
+    const type = document.getElementById("jobType").value;
+
+    const description = document.getElementById("jobDescription").value;
+
+    if(title === "" || location === "" || type === "" || description === ""){
+
+        alert("Please fill all fields");
+
+        return;
+    }
+
+    jobs.unshift({
+        title,
+        location,
+        type,
+        description
+    });
+
+    displayJobs();
+
+    document.getElementById("jobTitle").value = "";
+
+    document.getElementById("jobLocation").value = "";
+
+    document.getElementById("jobType").value = "";
+
+    document.getElementById("jobDescription").value = "";
+}
+
+function deleteJob(index){
+
+    if(confirm("Delete this job?")){
+
+        jobs.splice(index,1);
+
+        displayJobs();
+    }
+}
+
+displayJobs();
+
+</script>
+
+</body>
+</html>
